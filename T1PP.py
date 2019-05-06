@@ -20,6 +20,11 @@ def aparear(n):
 
 def heuristic(P):
 	showlistPoint(P)
+def restriccion(A, B, ListO):
+	for i in ListO
+		if(A.x>B.x and B.x>i.x and A.y<B.y and B.y<i.y):
+			return False
+	return True
 
 def algorithm(lPuntos, lRestriccion):
 	L=[] #Correspondiente a la lista de rectangulos obtenidos
@@ -29,7 +34,7 @@ def algorithm(lPuntos, lRestriccion):
 	xaux = 0
 	for i in range(len(lPuntos)):
 		for j in range(i+1, len(lPuntos)):
-			if(dim<math.sqrt(((lPuntos[j].x-lPuntos[i].x)**2)+((lPuntos[j].y-lPuntos[i].y)**2))):
+			if(dim<math.sqrt(((lPuntos[j].x-lPuntos[i].x)**2)+((lPuntos[j].y-lPuntos[i].y)**2)) and restriccion(lPuntos[i], lPuntos[j], lPuntos)):
 				dim=math.sqrt(((lPuntos[j].x-lPuntos[i].x)**2)+((lPuntos[j].y-lPuntos[i].y)**2))
 				aux=j
 		if(L[0] == None):
@@ -43,7 +48,6 @@ def algorithm(lPuntos, lRestriccion):
 # 	esto es porque me di cuenta de que cada punto no puede tener otro en el mismo eje x o y POR DEFINICION DEL PROBLEMA
 
 	return D
-
 def mergeList(A): #Avance 02/05, falta mota jaja
 	if len(A) >1:
 	md=len(arr)//2
@@ -67,7 +71,6 @@ def mergeList(A): #Avance 02/05, falta mota jaja
 		c.append(B[i])
 		j+=1
 	return c
-
 def showlistPoint(P):
 	for i in range(P):
 		print("("+str(i.x)+", "+str(i.y)+", "+str(i.color)+")")
