@@ -7,6 +7,8 @@ class Point:
         self.x = x
         self.y = y
         self.color = color
+        self.std=True
+        self.prj=None
         self.neighbors = []
         
     def __str__(self):
